@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+footer {
+  /* color: red; */
+  text-align: center;
+  background-color: #188754;
+  color: white;
+  padding: 0.5em 0 0.5em;
+}
+
+footer > p {
+  margin-bottom: 0;
+}
+.not-found {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.not-found img {
+  max-width: 700px;
+  margin-bottom: 2em;
+}

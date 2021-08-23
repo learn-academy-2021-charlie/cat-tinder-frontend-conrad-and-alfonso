@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-
+import React, { Component } from "react";
+import "../App.css";
 class Footer extends Component {
   render() {
     return (
-      <>
-        <h3>I am the footer!</h3>
-      </>
-    )
+      <footer>
+        <p>Made for rocks, by Conrad and Alfonso</p>
+      </footer>
+    );
   }
 }
 
