@@ -32,8 +32,6 @@ describe("when header renders", () => {
   it("displays a navbrand that contains 'Rock Tinder'", () => {
     //act
     const brand = header.find(".for-testing");
-    console.log("header debug", header.debug());
-    console.log("brand debug ", brand.debug());
     //assert
     expect(brand.length).toEqual(1);
   });
