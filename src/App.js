@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.rocks);
+    // console.log(this.state.rocks);
     return (
       <Router>
         <Header />
