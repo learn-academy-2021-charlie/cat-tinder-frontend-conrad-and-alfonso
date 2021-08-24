@@ -6,9 +6,9 @@ import {
   Navbar,
   NavbarBrand,
   NavbarToggler,
-  NavItem,
-  NavLink
+  NavItem
 } from "reactstrap";
+import { NavLink } from 'react-router-dom'
 
 class Header extends Component {
   constructor(props) {
@@ -36,15 +36,15 @@ class Header extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="mr-auto" navbar>
                 <NavItem>
-                  <NavLink href="/">Home</NavLink>
+                  <NavLink onClick={this.toggle} className="nav-link" exact to="/">Home</NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="/rockindex">Rocks</NavLink>
+                  <NavLink onClick={this.toggle} className="nav-link" to="/rockindex">Rocks</NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="/rocknew">Create New Rock</NavLink>
+                  <NavLink onClick={this.toggle} className="nav-link" to="/rocknew">Create New Rock</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
