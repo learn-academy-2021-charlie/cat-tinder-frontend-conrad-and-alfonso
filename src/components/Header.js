@@ -33,7 +33,9 @@ class Header extends Component {
       <div>
         <Navbar color="success" dark>
           <Container>
-            <NavbarBrand href="/">Rock Tinder</NavbarBrand>
+            <NavbarBrand className="for-testing" href="/">
+              Rock Tinder
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="mr-auto" navbar>
