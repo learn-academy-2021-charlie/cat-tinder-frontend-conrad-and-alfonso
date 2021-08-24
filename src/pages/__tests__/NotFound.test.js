@@ -8,12 +8,13 @@ Enzyme.configure({ adapter: new Adapter() });
 describe("when not found renders", () => {
   it("displays an image", () => {
     //arrange
-    const notFound = shallow(<NotFound />);
+    const notFound = shallow(<NotFound />)
     //act
-    const notFoundImage = notFound.find("img");
-    console.log("image debug", notFoundImage.debug());
+    const notFoundImage = notFound.find("img")
     //assert
-    expect(notFoundImage.prop("src")).toEqual(cat404);
-    expect(notFoundImage.props().src).toEqual(cat404);
+
+    //these both pass, but use different methods to accomplish the same thing.
+    expect(notFoundImage.prop("src")).toEqual(cat404)
+    // expect(notFoundImage.props().src).toEqual(cat404);
   });
 });
