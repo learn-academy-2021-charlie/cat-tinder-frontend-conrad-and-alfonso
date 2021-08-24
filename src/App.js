@@ -30,8 +30,15 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/rockindex" component={RockIndex} />
-          <Route path="/rockshow" component={RockShow} />
+
+          <Route path="/rockindex" render= {(props) => <RockIndex rocks = {this.state.rocks} />} />
+
+          <Route path="/rockshow/:id" render={(props) => {
+            const id = props.match.params.id
+            const rock = this.state.rocks.find(rock => rock.id === +id)
+            return <RockShow rock = {rock} />
+          }} />
+
           <Route path="/rocknew" component={RockNew} />
           <Route path="/rockedit" component={RockEdit} />
           <Route component={NotFound} />

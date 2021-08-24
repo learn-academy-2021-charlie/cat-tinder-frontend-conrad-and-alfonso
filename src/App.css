@@ -62,3 +62,13 @@ footer > p {
 .page {
   min-height: 100vh;
 }
+
+.brilliance, .hardness {
+  margin-bottom: 2px;
+}
+
+.progress {
+  max-width: 300px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

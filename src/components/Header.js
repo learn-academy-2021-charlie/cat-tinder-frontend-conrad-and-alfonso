@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import {
   Collapse,
   Container,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
   Nav,
   Navbar,
   NavbarBrand,
   NavbarToggler,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
+  NavLink
 } from "reactstrap";
 
 class Header extends Component {
