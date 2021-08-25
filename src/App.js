@@ -27,6 +27,11 @@ class App extends Component {
     console.log(newRock)
   }
 
+  updateRock = (editRock, id) =>{
+    console.log("rock: ",editRock)
+    console.log("id: ", id)
+  }
+
   render() {
     // console.log(this.state.rocks);
     return (
@@ -44,7 +49,11 @@ class App extends Component {
           }} />
 
           <Route path="/rocknew" render= {(props) => <RockNew createRock={this.createRock} />} />
-          <Route path="/rockedit" component={RockEdit} />
+          <Route path="/rockedit/:id"   render = {(props) => {
+            const id = props.match.params.id
+            const rock = this.state.rocks.find(rock => rock.id === +id)
+            return <RockEdit  updateRock = {this.updateRock} rock={rock}   />
+          }}/>
           <Route component={NotFound} />
         </Switch>
         <Footer />
