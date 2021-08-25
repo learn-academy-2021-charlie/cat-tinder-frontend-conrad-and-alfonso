@@ -11,9 +11,9 @@ class RockShow extends Component {
         <p><strong>Name:</strong> {rock && rock.name}</p>
         <p><strong>Color:</strong> {rock && rock.color}</p>
         <p className="brilliance"><strong>Brilliance:</strong> {rock && rock.brilliance}</p>
-        <Progress value={rock.brilliance * 10}>{rock.brilliance}/10</Progress>
+        <Progress value={rock && rock.brilliance * 10}>{rock && rock.brilliance}/10</Progress>
         <p className="hardness" ><strong>Hardness:</strong> {rock && rock.hardness}</p>
-        <Progress value={rock.hardness * 10} color="success">{rock.hardness}/10</Progress>
+        <Progress value={rock && rock.hardness * 10} color="success">{rock && rock.hardness}/10</Progress>
         <Link to="/rockindex">Back to Rocks</Link>
       </div>
     )
