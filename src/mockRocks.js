@@ -27,6 +27,13 @@ const rocks = [
     brilliance: 0,
     hardness: 6,
   },
+  {
+    id: 5,
+    name: "Dwayne 'The Rock' Johnson",
+    color: "brown",
+    brilliance: 10,
+    hardness: 10,
+  }
 ];
 
 export default rocks;
