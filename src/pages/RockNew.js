@@ -9,8 +9,8 @@ class RockNew extends Component {
       form: {
         name:"",
         color:"",
-        brilliance:'NaN',
-        hardness:'NaN'
+        brilliance:"",
+        hardness:""
       },
       submitted: false
     }

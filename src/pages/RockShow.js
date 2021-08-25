@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Progress } from 'reactstrap';
+import { Button, Progress } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
 class RockShow extends Component {
@@ -14,7 +14,11 @@ class RockShow extends Component {
         <Progress value={rock && rock.brilliance * 10}>{rock && rock.brilliance}/10</Progress>
         <p className="hardness" ><strong>Hardness:</strong> {rock && rock.hardness}</p>
         <Progress value={rock && rock.hardness * 10} color="success">{rock && rock.hardness}/10</Progress>
-        <Link to="/rockindex">Back to Rocks</Link>
+        <br/>
+        <Link to={`/rockedit/${rock && rock.id}`}><Button color="success">Edit Rock</Button></Link>
+        <br/>
+        <br/>
+        <Link to="/rockindex"><Button color="primary">Back to Rocks</Button></Link>
       </div>
     )
   }
