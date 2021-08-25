@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import {Redirect} from 'react-router-dom'
 
 class RockNew extends Component {
   constructor(props){
@@ -10,7 +11,8 @@ class RockNew extends Component {
         color:"",
         brilliance:'NaN',
         hardness:'NaN'
-      }
+      },
+      submitted: false
     }
   }
 
@@ -22,7 +24,8 @@ class RockNew extends Component {
 
 
   handleSubmit = () => {
-    console.log(this.state.form)
+    this.props.createRock(this.state.form)
+    this.setState({submitted: true})
   }
 
 
@@ -76,6 +79,7 @@ class RockNew extends Component {
           <br/>
           <Button name="submit" color="success" onClick={this.handleSubmit}>Create new Rock</Button>
         </Form>
+        {this.state.submitted && <Redirect to="/rockindex"/>}
       </div>
     )
   }

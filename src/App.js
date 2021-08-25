@@ -23,6 +23,10 @@ class App extends Component {
     };
   }
 
+  createRock = (newRock) =>{
+    console.log(newRock)
+  }
+
   render() {
     // console.log(this.state.rocks);
     return (
@@ -39,7 +43,7 @@ class App extends Component {
             return <RockShow rock = {rock} />
           }} />
 
-          <Route path="/rocknew" component={RockNew} />
+          <Route path="/rocknew" render= {(props) => <RockNew createRock={this.createRock} />} />
           <Route path="/rockedit" component={RockEdit} />
           <Route component={NotFound} />
         </Switch>
