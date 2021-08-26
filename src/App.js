@@ -20,6 +20,7 @@ class App extends Component {
     super(props);
     this.state = {
       rocks: mockRocks,
+      isOpen: false,
     };
   }
 
@@ -32,11 +33,33 @@ class App extends Component {
     console.log("id: ", id)
   }
 
+  toggle = () => {
+    const newOpenState = !this.state.isOpen;
+    this.setState({ isOpen: newOpenState });
+  };
+
+  componentDidMount(){
+    document.addEventListener("click",(e) =>{
+      console.log("target", e.target)
+      const targetClass = e.target.classList.value
+      if(targetClass === "nav-toggler-icon" || targetClass === "nav-toggler"){
+        alert("found the thing")
+        return
+      }else{
+        alert("not finding the thing")
+        this.setState({isOpen: false})
+      }
+      // this.setState({isOpen: false})
+      // navbar-toggler
+    })
+  }
+
+
   render() {
     // console.log(this.state.rocks);
     return (
-      <Router>
-        <Header />
+      <Router onClick={this.toggle}>
+        <Header isOpen = {this.state.isOpen}  toggle={this.toggle}/>
         <Switch>
           <Route exact path="/" component={Home} />
 
