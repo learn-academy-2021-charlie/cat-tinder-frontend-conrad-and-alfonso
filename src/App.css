@@ -72,3 +72,43 @@ footer > p {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+@media (min-width: 576px) {
+  div.card-group {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+div.card-group {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+div.card {
+  min-width: 300px;
+  max-width: 300px;
+  border: #188754 2px solid;
+  text-align: center;
+}
+
+div.card-body {
+  max-width: 290px;
+}
+
+@media (min-width: 576px) {
+  div.card-group>.card+.card {
+    margin-left: 0; 
+    border-left: #188754 2px solid;
+  }
+}
+
+.index-button-link {
+  color: white;
+  text-decoration: none;
+}
+
+.index-button-link:hover {
+  color: white;
+  text-decoration: none;
+}
