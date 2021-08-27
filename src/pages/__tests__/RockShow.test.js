@@ -5,7 +5,7 @@ import RockShow from '../RockShow'
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("When CatShow renders", () => {
+describe("When RockShow renders", () => {
     const rock = {
         id: 1,
         name: "Emerald",
@@ -16,7 +16,7 @@ describe("When CatShow renders", () => {
     it("displays a heading", () => {
         const rockShow = shallow(<RockShow />)
         const showHeading = rockShow.find("h3")
-        expect(showHeading.text()).toEqual("I am the Rock Show page")
+        expect(showHeading.length).toEqual(1)
     })
     it("displays the rock name", () => {
         const rockShow = shallow(<RockShow rock = {rock}/>)

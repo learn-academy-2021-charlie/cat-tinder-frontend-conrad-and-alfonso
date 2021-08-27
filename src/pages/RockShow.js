@@ -7,8 +7,8 @@ class RockShow extends Component {
    const {rock, deleteRock} = this.props
     return (
       <div className="page container">
+        <h3 className="text-center">The Rock</h3>
         <div className="box">
-          <h3>I am the Rock Show page</h3>
           <p><strong>Name:</strong> {rock && rock.name}</p>
           <p><strong>Color:</strong> {rock && rock.color}</p>
           <p className="brilliance"><strong>Brilliance:</strong> {rock && rock.brilliance}</p>

@@ -9,7 +9,7 @@ class RockIndex extends Component {
   render() {
     return (
       <div className="page container">
-        <h3 className="text-center">I am the Rock Index page</h3>
+        <h3 className="text-center">The Rocks</h3>
         <CardGroup>
           {this.props.rocks && this.props.rocks.map(rock => {
             return (

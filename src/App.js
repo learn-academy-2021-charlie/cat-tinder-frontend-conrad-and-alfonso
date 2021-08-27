@@ -80,6 +80,7 @@ class App extends Component {
   }
 
   toggle = () => {
+    console.log("toggling!")
     const newOpenState = !this.state.isOpen;
     this.setState({ isOpen: newOpenState });
   };

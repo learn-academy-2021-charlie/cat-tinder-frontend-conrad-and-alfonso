@@ -12,6 +12,6 @@ describe("When RockIndex renders", () => {
         // act
         const indexHeading = rockIndex.find("h3")
         // assert
-        expect(indexHeading.text()).toEqual("I am the Rock Index page")
+        expect(indexHeading.length).toEqual(1)
     })
 })
