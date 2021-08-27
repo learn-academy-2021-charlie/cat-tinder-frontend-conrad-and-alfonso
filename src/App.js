@@ -11,34 +11,19 @@ import RockNew from "./pages/RockNew";
 import RockEdit from "./pages/RockEdit";
 import NotFound from "./pages/NotFound";
 
-import mockRocks from "./mockRocks";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rocks: mockRocks,
       isOpen: false,
+      rocks: [],
     };
   }
 
-  createRock = (newRock) =>{
-    console.log(newRock)
-  }
-
-  updateRock = (editRock, id) =>{
-    console.log("rock: ",editRock)
-    console.log("id: ", id)
-  }
-
-  toggle = () => {
-    const newOpenState = !this.state.isOpen;
-    this.setState({ isOpen: newOpenState });
-  };
-
   componentDidMount(){
+    this.readRock()
     document.addEventListener("click",(e) =>{
       const targetClass = e.target.classList.value
       if(targetClass === "navbar-toggler-icon" || targetClass === "navbar-toggler"){
@@ -49,6 +34,43 @@ class App extends Component {
     })
   }
 
+  readRock = () => {
+    fetch("http://localhost:3000/rocks")
+    .then(response => response.json())
+    .then(rocksArray => this.setState({ rocks: rocksArray }))
+    .catch(errors => console.log("Rock read errors:", errors))
+  }
+
+  createRock = (newRock) =>{
+    fetch("http://localhost:3000/rocks", {
+      body: JSON.stringify(newRock),
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => response.json())
+    .then(payload => this.readRock())
+    .catch(errors => console.log("Rock create errors:", errors))
+  }
+
+  updateRock = (editRock, id) =>{
+    fetch(`http://localhost:3000/rocks/${id}`, {
+      body: JSON.stringify(editRock),
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => response.json())
+    .then(payload => this.readRock())
+    .catch(errors => console.log("Rock update errors:", errors))
+  }
+
+  toggle = () => {
+    const newOpenState = !this.state.isOpen;
+    this.setState({ isOpen: newOpenState });
+  };
 
   render() {
     // console.log(this.state.rocks);
