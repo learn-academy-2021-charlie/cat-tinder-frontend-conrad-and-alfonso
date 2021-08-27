@@ -11,25 +11,51 @@ import RockNew from "./pages/RockNew";
 import RockEdit from "./pages/RockEdit";
 import NotFound from "./pages/NotFound";
 
-import mockRocks from "./mockRocks";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rocks: mockRocks,
+      rocks: [],
     };
   }
 
+  componentDidMount(){
+    this.readRock()
+  }
+
+  readRock = () => {
+    fetch("http://localhost:3000/rocks")
+    .then(response => response.json())
+    .then(rocksArray => this.setState({ rocks: rocksArray }))
+    .catch(errors => console.log("Rock read errors:", errors))
+  }
+
   createRock = (newRock) =>{
-    console.log(newRock)
+    fetch("http://localhost:3000/rocks", {
+      body: JSON.stringify(newRock),
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => response.json())
+    .then(payload => this.readRock())
+    .catch(errors => console.log("Rock create errors:", errors))
   }
 
   updateRock = (editRock, id) =>{
-    console.log("rock: ",editRock)
-    console.log("id: ", id)
+    fetch(`http://localhost:3000/rocks/${id}`, {
+      body: JSON.stringify(editRock),
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => response.json())
+    .then(payload => this.readRock())
+    .catch(errors => console.log("Rock update errors:", errors))
   }
 
   render() {
