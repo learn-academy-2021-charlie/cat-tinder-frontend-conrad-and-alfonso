@@ -17,12 +17,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isOpen: false,
       rocks: [],
     };
   }
 
   componentDidMount(){
     this.readRock()
+    document.addEventListener("click",(e) =>{
+      const targetClass = e.target.classList.value
+      if(targetClass === "navbar-toggler-icon" || targetClass === "navbar-toggler"){
+        return
+      }else{
+        this.setState({isOpen: false})
+      }
+    })
   }
 
   readRock = () => {
@@ -58,11 +67,16 @@ class App extends Component {
     .catch(errors => console.log("Rock update errors:", errors))
   }
 
+  toggle = () => {
+    const newOpenState = !this.state.isOpen;
+    this.setState({ isOpen: newOpenState });
+  };
+
   render() {
     // console.log(this.state.rocks);
     return (
-      <Router>
-        <Header />
+      <Router onClick={this.toggle}>
+        <Header isOpen = {this.state.isOpen}  toggle={this.toggle}/>
         <Switch>
           <Route exact path="/" component={Home} />
 

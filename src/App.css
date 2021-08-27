@@ -112,3 +112,22 @@ div.card-body {
   color: white;
   text-decoration: none;
 }
+
+.box{
+  max-width: max-content;
+  margin: 25vh auto;
+  background-color: #ddd;
+  padding: 3rem;
+  border-radius: 25px;
+}
+
+.box a{
+  margin: 0 auto;
+  max-width: max-content;
+  display: block;
+
+}
+
+.box a+a{
+  margin-top: 1rem;
+}
