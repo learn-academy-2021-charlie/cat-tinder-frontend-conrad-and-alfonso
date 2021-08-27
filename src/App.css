@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body {
+  margin: 0;
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,13 +41,16 @@
     transform: rotate(360deg);
   }
 }
-
+header{
+  min-height: 10vh;
+}
 footer {
   /* color: red; */
   text-align: center;
   background-color: #188754;
   color: white;
   padding: 0.5em 0 0.5em;
+  margin-top: 10px;
 }
 
 footer > p {
@@ -60,11 +68,17 @@ footer > p {
 }
 
 .page {
-  min-height: 100vh;
+  min-height: 81vh;
 }
 
 .brilliance, .hardness {
   margin-bottom: 2px;
+}
+
+.page h3{
+  margin-top: 3rem;
+  font-family: 'Rock Salt', cursive;
+  margin-bottom: 2rem;
 }
 
 .progress {
@@ -83,6 +97,8 @@ footer > p {
 div.card-group {
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
+
 }
 
 div.card {
@@ -114,8 +130,8 @@ div.card-body {
 }
 
 .box{
-  max-width: max-content;
-  margin: 25vh auto;
+  max-width: 400px;
+  margin: 0 auto;
   background-color: #ddd;
   padding: 3rem;
   border-radius: 25px;
@@ -130,4 +146,22 @@ div.card-body {
 
 .box a+a{
   margin-top: 1rem;
+}
+
+.tinder-brand{
+  max-width: 150px;
+}
+
+.tinder-brand img{
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.frame{
+  display: flex;
+  justify-content: center;
+}
+
+.errored{
+  color: red;
 }

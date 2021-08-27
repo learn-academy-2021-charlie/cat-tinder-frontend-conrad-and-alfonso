@@ -9,6 +9,8 @@ import {
   NavItem
 } from "reactstrap";
 import { NavLink } from 'react-router-dom'
+import rockTinderBrand from '../assets/rock-tinder-brand.png'
+
 
 class Header extends Component {
   // constructor(props) {
@@ -24,10 +26,11 @@ class Header extends Component {
     //destructuring props so we don't have to use this.props every time.
     const {toggle,isOpen} = this.props
     return (
+      <header>
         <Navbar color="success" dark>
           <Container>
-            <NavbarBrand className="for-testing" href="/">
-              Rock Tinder
+            <NavbarBrand className="tinder-brand for-testing" href="/">
+              <img src={rockTinderBrand}/>
             </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
@@ -47,6 +50,7 @@ class Header extends Component {
             </Collapse>
           </Container>
         </Navbar>
+      </header>
     );
   }
 }

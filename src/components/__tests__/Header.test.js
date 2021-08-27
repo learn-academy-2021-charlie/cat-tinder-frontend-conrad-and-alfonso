@@ -25,7 +25,6 @@ describe("when header renders", () => {
     hamburger.simulate("click");
     const collapseCompoment = header.find("Collapse");
     //assert
-
     expect(collapseCompoment.prop("isOpen")).toEqual(true);
   });
 

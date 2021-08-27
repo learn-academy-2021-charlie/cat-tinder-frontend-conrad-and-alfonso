@@ -12,7 +12,8 @@ class RockNew extends Component {
         brilliance:"",
         hardness:""
       },
-      submitted: false
+      submitted: false,
+      triedForm: false
     }
   }
 
@@ -24,6 +25,11 @@ class RockNew extends Component {
 
 
   handleSubmit = () => {
+    const {brilliance,hardness} = this.state.form
+    if(brilliance < 1 || brilliance > 10 || hardness < 1 || hardness > 10){
+      this.setState({triedForm: true})
+      return
+    }
     this.props.createRock(this.state.form)
     this.setState({submitted: true})
   }
@@ -32,7 +38,7 @@ class RockNew extends Component {
   render() {
     return (
       <div className="page container">
-        <h3>I am the Rock New page</h3>
+        <h3>Create a Rock</h3>
         <Form>
         <br/>
           <FormGroup>
@@ -56,7 +62,7 @@ class RockNew extends Component {
           </FormGroup>
           <br/>
           <FormGroup>
-            <Label for="brilliance">Brilliance (between 1 and 10)</Label>
+            <Label for="brilliance">Brilliance <span className={this.state.triedForm && (this.state.form.brilliance > 10 || this.state.form.brilliance < 1)? "errored": ""}>(between 1 and 10)</span></Label>
             <Input 
               type="number" 
               name="brilliance" 
@@ -67,7 +73,7 @@ class RockNew extends Component {
           </FormGroup>
           <br/>
           <FormGroup>
-            <Label for="hardness">Hardness (between 1 and 10)</Label>
+            <Label for="hardness">Hardness <span className={this.state.triedForm && (this.state.form.hardness > 10 || this.state.form.hardness < 1)? "errored": ""}>(between 1 and 10)</span></Label>
             <Input 
               type="number" 
               name="hardness" 

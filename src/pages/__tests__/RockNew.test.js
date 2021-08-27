@@ -16,7 +16,7 @@ describe("when rocknew page renders",() =>{
     
     const header = renderedRockNew.find("h3")
 
-    expect(header.text()).toEqual("I am the Rock New page");
+    expect(header.length).toEqual(1);
 
 
   })
