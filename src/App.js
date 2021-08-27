@@ -67,6 +67,18 @@ class App extends Component {
     .catch(errors => console.log("Rock update errors:", errors))
   }
 
+  deleteRock = (id) => {
+    fetch(`http://localhost:3000/rocks/${id}`, {
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(payload => this.readRock())
+    .catch(errors => console.log("Rock delete errors:", errors))
+  }
+
   toggle = () => {
     const newOpenState = !this.state.isOpen;
     this.setState({ isOpen: newOpenState });
@@ -85,7 +97,7 @@ class App extends Component {
           <Route path="/rockshow/:id" render={(props) => {
             const id = props.match.params.id
             const rock = this.state.rocks.find(rock => rock.id === +id)
-            return <RockShow rock = {rock} />
+            return <RockShow deleteRock = {this.deleteRock} rock = {rock} />
           }} />
 
           <Route path="/rocknew" render= {(props) => <RockNew createRock={this.createRock} />} />

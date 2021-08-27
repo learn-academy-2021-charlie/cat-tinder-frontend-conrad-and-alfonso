@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 class RockShow extends Component {
   render() {
-   const {rock} = this.props
+   const {rock, deleteRock} = this.props
     return (
       <div className="page container">
         <div className="box">
@@ -17,6 +17,7 @@ class RockShow extends Component {
           <Progress value={rock && rock.hardness * 10} color="success">{rock && rock.hardness}/10</Progress>
           <br/>
           <Link to={`/rockedit/${rock && rock.id}`}><Button color="success">Edit Rock</Button></Link>
+          <Link to="/rockindex"><Button onClick={ () => deleteRock(rock.id) } color="danger">Delete Rock</Button></Link>
           <Link to="/rockindex"><Button color="primary">Back to Rocks</Button></Link>
         </div>
       </div>
