@@ -40,17 +40,12 @@ class App extends Component {
 
   componentDidMount(){
     document.addEventListener("click",(e) =>{
-      console.log("target", e.target)
       const targetClass = e.target.classList.value
-      if(targetClass === "nav-toggler-icon" || targetClass === "nav-toggler"){
-        alert("found the thing")
+      if(targetClass === "navbar-toggler-icon" || targetClass === "navbar-toggler"){
         return
       }else{
-        alert("not finding the thing")
         this.setState({isOpen: false})
       }
-      // this.setState({isOpen: false})
-      // navbar-toggler
     })
   }
 
